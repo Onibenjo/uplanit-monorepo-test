@@ -1,17 +1,20 @@
 import React from 'react';
 import {
-  Button,
+  // Button,
   StyleSheet,
   View,
-  Image as ImageView,
+  // Image as ImageView,
   StatusBar,
 } from 'react-native';
+import {
+  Button, ImageView,
+} from '@uplanit/components';
 
 const App = () => {
-  const [imageSrc, setImageSrc] = React.useState('');
+  const [imageSrc, setImageSrc] = React.useState('https://source.unsplash.com/random?food');
 
   const changeLink = () => {
-    const images = ['', '', '', ''];
+    const images = ['https://source.unsplash.com/random?recipe', 'https://source.unsplash.com/random?tea', 'https://source.unsplash.com/random?sport', 'https://source.unsplash.com/random?car'];
     const randomIndex = Math.floor(Math.random() * images.length);
     setImageSrc(images[randomIndex]);
   };
@@ -29,12 +32,8 @@ const App = () => {
 
 const styles = StyleSheet.create({
   body: {
-    position: 'absolute',
-    right: 0,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+    flex: 1,
+    flexDirection: 'row',
   },
 });
 

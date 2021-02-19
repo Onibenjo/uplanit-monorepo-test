@@ -15,8 +15,7 @@ export const actions = {
   // onArchiveTask: action('onArchiveTask'),
 };
 
-storiesOf('Task', module)
-  // .addDecorator(story => <View style={styles.TaskBox}>{story()}</View>)
+storiesOf('Button', module)
   .add('Black', () => (
     <Button
       backgroundColor="#000"

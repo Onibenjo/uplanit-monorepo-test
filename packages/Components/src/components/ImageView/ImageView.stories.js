@@ -3,10 +3,10 @@ import {storiesOf} from '@storybook/react-native';
 import ImageView from './ImageView';
 //
 export const imageUrl = {
-  source: '',
+  source: 'https://source.unsplash.com/random?recipe',
   noSource: '',
 };
 
 storiesOf('Image View', module)
-  .add('default', () => <ImageView imageSrc={imageUrl.source} />)
-  .add('pinned', () => <ImageView imageSrc={imageUrl.noSource} />);
+  .add('With Source', () => <ImageView imageSrc={imageUrl.source} />)
+  .add('Without Source', () => <ImageView imageSrc={imageUrl.noSource} />);
