@@ -1,0 +1,51 @@
+# - name: React Native Android Build APK
+#   uses: realabbas/Github-Actions-React-Native@v1.1.2
+
+# or git update-index --chmod=+x gradlew
+
+name: build debug
+on:
+  push:
+    branches:
+      - build-debug
+jobs:
+  build-android:
+    # needs: install-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # - name: Install npm dependencies
+      #   uses: bahmutov/npm-install@v1
+      - name: Restore node_modules cache
+        uses: actions/cache@v2
+        id: cache-node-modules
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-nodemodules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-nodemodules-
+      - name: Install dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        # run: yarn --prefer-offline --frozen-lockfile
+        run: yarn --frozen-lockfile
+      - name: Jetify dependencies
+        run: npx jetify
+      # - name: Build apk
+      #   run: yarn android
+      - name: Build Android Release
+        uses: eskatos/gradle-command-action@v1
+        with:
+          arguments: assembleDevDebug
+          wrapper-cache-enabled: true
+          dependencies-cache-enabled: true
+          configuration-cache-enabled: true
+          build-root-directory: android/
+          wrapper-directory: android/
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          # name: app-release.apk
+          # name: app-armeabi-v7a-release.apk
+          name: app-debug.apk
+          path: android/app/build/outputs/apk/dev/debug/app-debug.apk
