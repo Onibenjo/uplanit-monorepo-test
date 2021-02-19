@@ -3,7 +3,7 @@ import {
   // Button,
   StyleSheet,
   View,
-  // Image as ImageView,
+  Image,
   StatusBar,
 } from 'react-native';
 import {Button, ImageView} from '@uplanit/components';
@@ -31,7 +31,12 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <View style={styles.body}>
         <ImageView imageSrc={imageSrc} />
-        <Button changeLink={changeLink} />
+        <Button
+          changeLink={changeLink}
+          buttonText="Click to change image"
+          backgroundColor="#003"
+          textColor="#eee"
+        />
       </View>
     </>
   );
@@ -40,7 +45,9 @@ const App = () => {
 const styles = StyleSheet.create({
   body: {
     flex: 1,
-    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
   },
 });
 

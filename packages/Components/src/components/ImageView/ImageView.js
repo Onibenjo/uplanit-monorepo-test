@@ -9,12 +9,9 @@ const ImageView = ({imageSrc}) => {
     <View>
       {imageSrc ? (
         <Image
-          // source={require('../../assets/1.jpg')}
           source={{uri: imageSrc}}
-          height={140}
-          width={140}
-          resizeMode={'contain'}
-          style={{width: 200}}
+          resizeMode="cover"
+          style={{width: 300, height: 200}}
         />
       ) : (
         <Text>Please provide image url</Text>
