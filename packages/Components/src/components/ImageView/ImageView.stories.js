@@ -1,12 +1,16 @@
 import React from 'react';
 import {storiesOf} from '@storybook/react-native';
 import ImageView from './ImageView';
+import {Center} from '../Button/Button.stories';
 //
 export const imageUrl = {
-  source: 'https://source.unsplash.com/random?recipe',
+  source: require('../../assets/torterra.jpg'),
+  // source:
+  //   'https://images.unsplash.com/photo-1603209217132-3644d4511dca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxyYW5kb218fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit',
   noSource: '',
 };
 
 storiesOf('Image View', module)
-  .add('With Source', () => <ImageView imageSrc={imageUrl.source} />)
-  .add('Without Source', () => <ImageView imageSrc={imageUrl.noSource} />);
+  .addDecorator((story) => <Center>{story()}</Center>)
+  .add('source', () => <ImageView imageSrc={imageUrl.source} />)
+  .add('no source', () => <ImageView imageSrc={imageUrl.noSource} />);

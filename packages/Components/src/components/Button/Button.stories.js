@@ -2,21 +2,28 @@ import React from 'react';
 import {storiesOf} from '@storybook/react-native';
 // import {action} from '@storybook/addon-actions';
 import Button from './Button';
-
-export const task = {
-  id: '1',
-  title: 'Test Task',
-  state: 'TASK_INBOX',
-  updatedAt: new Date(2018, 0, 1, 9, 0),
-};
+import {View} from 'react-native';
 
 export const actions = {
   // onPinTask: action('onPinTask'),
   // onArchiveTask: action('onArchiveTask'),
 };
 
+export const Center = ({children}) => (
+  <View
+    style={{
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#F5FCFF',
+    }}>
+    {children}
+  </View>
+);
+
 storiesOf('Button', module)
-  .add('Black', () => (
+  .addDecorator((story) => <Center>{story()}</Center>)
+  .add('black', () => (
     <Button
       backgroundColor="#000"
       textColor="#FFF"
@@ -24,7 +31,7 @@ storiesOf('Button', module)
       {...actions}
     />
   ))
-  .add('White', () => (
+  .add('white', () => (
     <Button
       backgroundColor="#FFF"
       textColor="#000"

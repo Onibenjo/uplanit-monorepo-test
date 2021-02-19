@@ -9,15 +9,15 @@ import {View, Text, TouchableOpacity} from 'react-native';
 
 const Button = ({changeLink, backgroundColor, textColor, buttonText}) => {
   return (
-    <View>
-      <TouchableOpacity
-        onPress={changeLink}
-        style={{
-          backgroundColor,
-        }}>
-        <Text style={{color: textColor}}>{buttonText}</Text>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity
+      onPress={changeLink}
+      style={{
+        backgroundColor,
+        paddingHorizontal: 16,
+        paddingVertical: 10,
+      }}>
+      <Text style={{color: textColor}}>{buttonText}</Text>
+    </TouchableOpacity>
   );
 };
 
