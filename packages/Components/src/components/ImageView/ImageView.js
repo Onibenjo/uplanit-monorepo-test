@@ -10,7 +10,7 @@ const ImageView = ({imageSrc}) => {
       {imageSrc ? (
         <Image
           // source={require('../../assets/1.jpg')}
-          source={imageSrc}
+          source={{uri: imageSrc}}
           height={140}
           width={140}
           resizeMode={'contain'}
