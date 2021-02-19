@@ -19,12 +19,14 @@ const App = () => {
       'https://source.unsplash.com/random?tea',
       'https://source.unsplash.com/random?sport',
       'https://source.unsplash.com/random?car',
+      'https://source.unsplash.com/random?pet',
+      'https://source.unsplash.com/random?shop',
+      'https://source.unsplash.com/random?office',
+      'https://source.unsplash.com/random?hospital',
     ];
     const randomIndex = Math.floor(Math.random() * images.length);
     setImageSrc(images[randomIndex]);
   };
-
-  console.log(imageSrc);
 
   return (
     <>
